@@ -1,0 +1,102 @@
+{
+  "machineName": "RDV-011241.hylandqa.net",
+  "deploymentMode": "Remote",
+  "configurationName": "UnityInstall",
+  "remoteUsername": "ONBASE\\prroy",
+  "sqlServer":{
+    "datasourceName": "OnBase",
+    "databaseName": "OnBase",
+    "sqlInstance": "RDV-011241\\SQL2K22",
+    "odbcDriverName": "ODBC Driver 18 for SQL Server",
+    "sqlVersion": "2022",
+    "hsiUsername": "hsi",
+    "hsiPassword": "wstinol",
+    "thumbprint": "",
+    "sqlSetupPath": "\\\\onbase.net\\shares\\Public\\SQLServer\\sql_server_2022_developer.iso"
+  },
+    "OnBase":{
+    "proGetFeedUrl": "https://proget.onbase.net/nuget/Release",
+    "buildPath": "\\\\onbase.net\\shares\\Builds\\OnBase\\Current\\25_1\\25,1,28,1000",
+    "unityMsiRelativePath": "Install\\Unity Client\\Hyland Unity Client.msi",
+    "unityExtraMsiArgs": "ALLUSERS=1",
+    "unityTimeoutMinutes": 15,
+    "onBaseConfigurationMsiRelativePath": "Thick\\install\\OnBase Configuration\\Hyland OnBase Configuration.msi",
+    "onBaseConfigurationExtraMsiArgs": "ALLUSERS=1",
+    "onBaseConfigurationTimeoutMinutes": 15,
+    "onBaseStudioMsiRelativePath": "Install\\x64\\OnBase Studio\\Hyland OnBase Studio x64.msi",
+    "onBaseStudioExtraMsiArgs": "ALLUSERS=1",
+    "onBaseStudioTimeoutMinutes": 15
+  },
+  "odbcDriver": {
+    "sqlOdbc17MsiPath": "https://go.microsoft.com/fwlink/?linkid=2388792",
+    "sqlOdbc17Version": "Microsoft ODBC Driver 17 for SQL Server (x64)",
+    "sqlOdbc18MsiPath": "https://go.microsoft.com/fwlink/?linkid=2378279",
+    "sqlOdbc18Version": "Microsoft ODBC Driver 18 for SQL Server (x64)",
+    "sqlOdbcDownloadDirectory": "C:\\Temp\\OnBaseSqlInstaller",
+    "odbcDownloadTimeoutSeconds": 600
+  },
+  "configTemplatesPath": "",
+  "idp": {
+    "appName": "identityservice",
+    "version": "5.1.0",
+    "packageId": "Hyland.Identity.Server.Setup",
+    "adminUsers": [
+      "MANAGER",
+      "SM",
+      "QA",
+      "RND",
+      "PC"
+    ],
+    "adminGroups": [
+      "MANAGER"
+    ],
+    "providers": [
+      {
+        "Name": "OnBaseProvider",
+        "Type": 9,
+        "ProtocolSettings": {
+          "Metadata": {
+            "CacheDurationInSeconds": 14400,
+            "JwksUri": "https://auth.iam.dev.experience.hyland.com/idp/.well-known/openid-configuration/jwks"
+          },
+          "Issuer": "https://auth.iam.dev.experience.hyland.com/idp",
+          "SubjectTokenType": "urn:ietf:params:oauth:token-type:id_token"
+        },
+        "UserAttributeMappingSettings": {
+          "userid": "sub",
+          "username": "preferred_username"
+        },
+        "UserProvisioningSettings": {
+          "UserProvisioningEnabled": true,
+          "UserProvisioningCreateEnabled": false,
+          "UserProvisioningUpdateEnabled": false,
+          "DefaultSsoGroupMapping": []
+        },
+        "ClaimTransformationSettings": {
+          "StripDomainFromUserName": false
+        }
+      }
+    ]
+  },
+  "apiServer": {
+    "appName": "apiserver",
+    "version": "25.1.28.1000",
+    "packageId": "Hyland.ApiServer.Installer"
+  },
+  "tempFsConfig": {
+    "packageId": "TempFileService.Configuration",
+    "version": "1.9.0"
+  },
+  "appServer": {
+    "appName": "AppServer64",
+    "sourceMsiPath": "\\\\onbase.net\\shares\\Builds\\OnBase\\Current\\25_1\\25,1,28,1000\\Install\\x64\\Application Server\\Hyland Application Server 25.1 x64.msi",
+    "timeoutMinutes": 15,
+    "extraMsiArgs": "ALLUSERS=1 APPSERVER64_IIS_WEBSITE_ID=1",
+    "vcRedistDownloadUrl": "https://aka.ms/vs/17/release/vc_redist.x64.exe",
+    "vcRedistMinimumVersion": "14.44.0",
+    "sqlEncrypt": true,
+  "sqlTrustServerCertificate": false,
+  "healthTimeoutSeconds": 120,
+  "healthPollSeconds": 10
+  }
+}

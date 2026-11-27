@@ -1,0 +1,18 @@
+{
+  "Environment": "DEV",
+  "DeploymentMode": "Remote",
+  "TargetMachine": "RDV-009989",
+
+  "Database": {
+    "Server": "RDV-009989\\SQLSERVER2K19",
+    "Database": "OnBaseTestDB"
+  },
+  "ApplicationServer": {
+    "Url": "https://rdv-009989.hylandqa.net/AppServer64/service.asmx"
+  },
+  "InstallPaths": {
+    "UnityClient": "C:\\Program Files\\Hyland\\Unity Client",
+    "Studio": "C:\\Program Files\\Hyland\\Studio",
+    "Configuration": "C:\\Program Files\\Hyland\\Configuration"
+  }
+}
